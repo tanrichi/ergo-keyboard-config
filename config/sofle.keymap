@@ -44,6 +44,11 @@
             bindings = <&kp ESCAPE>;
             key-positions = <25 41>;
         };
+
+        goequal {
+            bindings = <&goequal>;
+            key-positions = <28 27>;
+        };
     };
 
     behaviors {
@@ -55,17 +60,25 @@
         };
     };
 
+    macros {
+        goequal: goequal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp EQUAL>;
+            label = "GOEQUAL";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             display-name = "Base";
-
             bindings = <
 &gresc          &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                  &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
 &kp TAB         &kp Q   &kp W     &kp E     &kp R      &kp T                                   &kp Y   &kp U      &kp I      &kp O     &kp P     &kp BSPC
 &kp LEFT_SHIFT  &kp A   &kp S     &kp D     &kp F      &kp G                                   &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp RIGHT_SHIFT
-&to 4          &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &kp C_PLAY_PAUSE  &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &trans
+&to 4           &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &kp C_PLAY_PAUSE  &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &trans
                         &kp LGUI  &kp LALT  &kp LCTRL  &mo 1   &kp SPACE     &kp ENTER         &mo 2   &kp RCTRL  &kp LALT   &kp RGUI
             >;
 
@@ -76,13 +89,12 @@
 
         lower_layer {
             display-name = "Symbols";
-
             bindings = <
-&trans            &kp F1                 &kp F2           &kp F3             &kp F4      &kp F5                                &kp F6     &kp F7         &kp F8        &kp F9                &kp F10        &kp F11
-&trans            &kp EXCL               &kp AT           &kp POUND          &kp DOLLAR  &kp PERCENT                           &kp CARET  &kp AMPERSAND  &kp ASTRK     &kp SLASH             &kp BACKSLASH  &kp F12
-&kp LESS_THAN     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp DOT     &kp COLON                             &kp UNDER  &kp PIPE       &kp EQUAL     &kp SINGLE_QUOTE      &trans         &trans
-&kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp COMMA   &kp SEMI     &trans    &trans         &kp MINUS  &kp PLUS       &kp QUESTION  &kp DOUBLE_QUOTES     &trans         &trans
-                               &trans           &trans             &trans      &trans       &trans    &kp BACKSPACE  &trans     &trans         &trans        &trans
+&trans            &kp F1                 &kp F2           &kp F3             &kp F4      &kp F5                                &kp F6     &kp F7         &kp F8        &kp F9             &kp F10        &kp F11
+&trans            &kp EXCL               &kp AT           &kp POUND          &kp DOLLAR  &kp PERCENT                           &kp CARET  &kp AMPERSAND  &kp ASTRK     &kp SLASH          &kp BACKSLASH  &kp F12
+&kp LESS_THAN     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp DOT     &kp COLON                             &kp UNDER  &kp PIPE       &kp EQUAL     &kp SINGLE_QUOTE   &trans         &trans
+&kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp COMMA   &kp SEMI     &trans    &trans         &kp MINUS  &kp PLUS       &kp QUESTION  &kp DOUBLE_QUOTES  &trans         &trans
+                                         &trans           &trans             &trans      &trans       &trans    &kp BACKSPACE  &trans     &trans         &trans        &trans
             >;
 
             sensor-bindings =
@@ -92,7 +104,6 @@
 
         raise_layer {
             display-name = "Nav";
-
             bindings = <
 &trans  &trans      &trans     &trans       &trans       &trans                      &trans     &trans    &trans    &trans     &trans   &trans
 &trans  &kp INS     &kp PSCRN  &kp K_CMENU  &trans       &trans                      &kp PG_UP  &trans    &kp UP    &trans     &kp N0   &trans
@@ -105,7 +116,6 @@
         };
 
         adjust_layer {
-
             display-name = "System";
             bindings = <
 &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &none  &none  &none  &none  &none  &none
@@ -118,20 +128,19 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-         game_layer {
-             display-name = "Game";
+        game_layer {
+            display-name = "Game";
+            bindings = <
+&gresc          &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                  &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
+&kp TAB         &kp Q   &kp W     &kp E     &kp R      &kp T                                   &kp Y   &kp U      &kp I      &kp O     &kp P     &kp BSPC
+&kp LEFT_SHIFT  &kp A   &kp S     &kp D     &kp F      &kp G                                   &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp RIGHT_SHIFT
+&to 0           &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &kp C_PLAY_PAUSE  &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &trans
+                        &kp LGUI  &kp LALT  &kp LCTRL  &mo 1   &kp SPACE     &kp ENTER         &mo 2   &kp RCTRL  &kp LALT   &kp RGUI
+            >;
 
-             bindings = <
- &gresc          &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                  &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
- &kp TAB         &kp Q   &kp W     &kp E     &kp R      &kp T                                   &kp Y   &kp U      &kp I      &kp O     &kp P     &kp BSPC
- &kp LEFT_SHIFT  &kp A   &kp S     &kp D     &kp F      &kp G                                   &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp RIGHT_SHIFT
- &to 0           &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &kp C_PLAY_PAUSE  &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &trans
-                         &kp LGUI  &kp LALT  &kp LCTRL  &mo 1   &kp SPACE     &kp ENTER         &mo 2   &kp RCTRL  &kp LALT   &kp RGUI
-             >;
-
-             sensor-bindings =
-                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                 <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
-         };
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+        };
     };
 };

@@ -49,6 +49,11 @@
             bindings = <&goequal>;
             key-positions = <28 27>;
         };
+
+        saveandquit {
+            bindings = <&savequit>;
+            key-positions = <14 13>;
+        };
     };
 
     behaviors {
@@ -82,6 +87,13 @@
             #binding-cells = <0>;
             bindings = <&kp LC(C)>;
             label = "COPY";
+        };
+
+        savequit: savequit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp W &kp Q>;
+            label = "SAVEQUIT";
         };
     };
 

@@ -17,5 +17,8 @@ manifest:
     - name: urchin-peripheral-animation   #new entry
       remote: gpeye                       #new entry
       revision: main                      #new entry
+    - name: zmk-helpers
+      remote: urob
+      revision: main
   self:
     path: config

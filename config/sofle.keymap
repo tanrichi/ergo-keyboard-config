@@ -6,7 +6,7 @@
 
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/sofle.h"
-#include "zmk-helpers/unicode-chars/french.dtsi"
+//#include "zmk-helpers/unicode-chars/french.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>

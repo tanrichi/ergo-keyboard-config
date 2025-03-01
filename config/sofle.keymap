@@ -38,7 +38,7 @@
 
         backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <32 31>;
+            key-positions = <RM1 RM2>;
         };
 
         delete {
@@ -53,12 +53,12 @@
 
         goequal {
             bindings = <&goequal>;
-            key-positions = <28 27>;
+            key-positions = <LM1 LM2>;
         };
 
         saveandquit {
             bindings = <&savequit>;
-            key-positions = <14 13>;
+            key-positions = <LT3 LT4>;
         };
     };
 

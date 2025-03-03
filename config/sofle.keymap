@@ -26,13 +26,15 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
 #define THUMBS LH4 LH3 LH2 LH1 LH0 RH0 RH1 RH2 RH3 RH4  // thumbs
 
-#define QUICK_TAP_MS 150
+#define QUICK_TAP_MS 175
 
 ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
               tapping-term-ms = <QUICK_TAP_MS>;)
 ZMK_COMBO(copy_cut, &copy_cut,   LB2 LB3, ALL)  // copy on tap, cut on double-tap, active on all layers
 ZMK_COMBO(paste,    &kp LS(INS), LB1 LB2, ALL)
 
+ZMK_TAP_DANCE(layerdance, bindings = <&tog 4>, <&tog 5>;
+              tapping-term-ms = <QUICK_TAP_MS>;)
 
 ZMK_TAP_DANCE(desk1, bindings = <&kp N1>, <&kp LG(N1)>;
               tapping-term-ms = <QUICK_TAP_MS>;)
@@ -139,7 +141,7 @@ ZMK_HOLD_TAP(hmr,
 &gresc          &desk1        &desk2        &desk3        &desk4        &desk5                                  &kp N6  &kp N7           &kp N8         &kp N9         &kp N0          &kp DEL
 &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T                                   &kp Y   &kp U            &kp I          &kp O          &kp P           &kp BSPC
 &trans          &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G                                   &kp H   &hmr RSHFT J     &hmr LCTRL K   &hmr LALT L    &hmr LGUI SEMI  &trans
-&to 4           &kp Z         &kp X         &kp C         &kp V         &kp B   &kp C_MUTE    &kp C_PLAY_PAUSE  &kp N   &kp M            &kp COMMA      &kp DOT        &kp FSLH        &trans
+&layerdance     &kp Z         &kp X         &kp C         &kp V         &kp B   &kp C_MUTE    &kp C_PLAY_PAUSE  &kp N   &kp M            &kp COMMA      &kp DOT        &kp FSLH        &trans
                               &kp LGUI      &kp LALT      &kp LSHFT     &mo 1   &kp SPACE     &kp ENTER         &mo 2   &kp RSHFT        &kp LALT       &kp RGUI
             >;
 

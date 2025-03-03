@@ -30,6 +30,7 @@
 ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
               tapping-term-ms = <200>;)
 ZMK_COMBO(copy_cut, &copy_cut,   LB2 LB3, ALL)  // copy on tap, cut on double-tap, active on all layers
+ZMK_COMBO(paste,    &kp LS(INS), LB1 LB2, ALL)
 
 
 ZMK_HOLD_TAP(hml,

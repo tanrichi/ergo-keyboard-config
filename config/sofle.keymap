@@ -26,29 +26,29 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
 #define THUMBS LH4 LH3 LH2 LH1 LH0 RH0 RH1 RH2 RH3 RH4  // thumbs
 
-#define QUICK_TAP_MS 125
+#define QUICK_TAP_MS 150
 
 ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
-              tapping-term-ms = <150>;)
+              tapping-term-ms = <QUICK_TAP_MS>;)
 ZMK_COMBO(copy_cut, &copy_cut,   LB2 LB3, ALL)  // copy on tap, cut on double-tap, active on all layers
 ZMK_COMBO(paste,    &kp LS(INS), LB1 LB2, ALL)
 
 
 ZMK_TAP_DANCE(desk1, bindings = <&kp N1>, <&kp LG(N1)>;
-              tapping-term-ms = <150>;)
+              tapping-term-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(desk2, bindings = <&kp N2>, <&kp LG(N2)>;
-              tapping-term-ms = <150>;)
+              tapping-term-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(desk3, bindings = <&kp N3>, <&kp LG(N3)>;
-              tapping-term-ms = <150>;)
+              tapping-term-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(desk4, bindings = <&kp N4>, <&kp LG(N4)>;
-              tapping-term-ms = <150>;)
+              tapping-term-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(desk5, bindings = <&kp N5>, <&kp LG(N5)>;
-              tapping-term-ms = <150>;)
+              tapping-term-ms = <QUICK_TAP_MS>;)
 
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
     tapping-term-ms = <200>;
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <QUICK_TAP_MS>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
     bindings = <&kp>, <&kp>;
@@ -57,7 +57,7 @@ ZMK_HOLD_TAP(hml,
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
     tapping-term-ms = <200>;
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <QUICK_TAP_MS>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
     bindings = <&kp>, <&kp>;

@@ -3,8 +3,8 @@ manifest:
       # zmk official
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: gpeye                         #new entry
-      url-base: https://github.com/GPeye  #new entry
+    - name: gpeye                         
+      url-base: https://github.com/GPeye 
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: urob
@@ -17,9 +17,9 @@ manifest:
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
-    - name: urchin-peripheral-animation   #new entry
-      remote: gpeye                       #new entry
-      revision: main                      #new entry
+    - name: urchin-peripheral-animation
+      remote: gpeye                      
+      revision: main                     
     - name: zmk-helpers
       remote: urob
       revision: main

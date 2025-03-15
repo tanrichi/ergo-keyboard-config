@@ -13,18 +13,11 @@ manifest:
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
-    - name: zmk
-      remote: urob
-      revision: main
-      import: app/west.yml
     - name: urchin-peripheral-animation   #new entry
       remote: gpeye                       #new entry
       revision: main                      #new entry
     - name: zmk-helpers
       remote: urob
       revision: main
-    - name: zmk-auto-layer
-      remote: urob
-      revision: v0.2 # set to same version as zmk
   self:
     path: config

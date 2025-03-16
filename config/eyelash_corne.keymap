@@ -29,7 +29,6 @@ ZMK_COMBO(copy_cut, &copy_cut,   LB2 LB3, ALL)  // copy on tap, cut on double-ta
 ZMK_COMBO(paste,    &kp LC(V), LB1 LB2, ALL)
 ZMK_COMBO(undo ,    &kp LC(Z), LB4 LB3, ALL)
 ZMK_COMBO(redo ,    &kp LC(LS(Z)), LB4 LB1, ALL)
-ZMK_COMBO(goequal ,  &goequal, LM1 LM2, ALL)
 
 ZMK_TAP_DANCE(layerdance, bindings = <&tog 4>, <&tog 5>;
               tapping-term-ms = <200>;)
@@ -101,6 +100,36 @@ ZMK_HOLD_TAP(hmr,
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         tap-ms = <100>;
+    };
+
+
+    combos {
+        compatible = "zmk,combos";
+
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <RM1 RM2>;
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <27 33>;
+        };
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <25 41>;
+        };
+
+        goequal {
+            bindings = <&goequal>;
+            key-positions = <LM1 LM2>;
+        };
+
+        saveandquit {
+            bindings = <&savequit>;
+            key-positions = <LT3 LT4>;
+        };
     };
 
     macros {

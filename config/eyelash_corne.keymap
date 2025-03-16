@@ -106,11 +106,6 @@ ZMK_HOLD_TAP(hmr,
             key-positions = <27 33>;
         };
 
-        esc {
-            bindings = <&kp ESCAPE>;
-            key-positions = <25 41>;
-        };
-
         goequal {
             bindings = <&goequal>;
             key-positions = <LM1 LM2>;

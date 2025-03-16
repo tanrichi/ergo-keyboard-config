@@ -114,6 +114,7 @@ ZMK_HOLD_TAP(hmr,
         saveandquit {
             bindings = <&savequit>;
             key-positions = <LT3 LT4>;
+        };
     };
 
     rgb_encoder: rgb_encoder {

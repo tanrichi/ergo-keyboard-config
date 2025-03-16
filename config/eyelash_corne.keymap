@@ -29,6 +29,7 @@ ZMK_COMBO(copy_cut, &copy_cut,   LB2 LB3, ALL)  // copy on tap, cut on double-ta
 ZMK_COMBO(paste,    &kp LC(V), LB1 LB2, ALL)
 ZMK_COMBO(undo ,    &kp LC(Z), LB4 LB3, ALL)
 ZMK_COMBO(redo ,    &kp LC(LS(Z)), LB4 LB1, ALL)
+ZMK_COMBO(escape ,  &kp ESC, LT0 LT1, ALL)
 
 ZMK_TAP_DANCE(layerdance, bindings = <&tog 4>, <&tog 5>;
               tapping-term-ms = <200>;)
@@ -173,7 +174,7 @@ ZMK_HOLD_TAP(hmr,
             bindings = <
 &trans  &trans  &kp N1  &kp N2 &kp N3 &trans                          &mmv MOVE_UP                    &kp SLASH  &trans &trans &trans &trans &trans
 &trans  &trans  &kp N4  &kp N5 &kp N6 &trans            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT   &kp EQUAL  &kp ASTRK &trans &trans &trans &trans
-&trans  &trans  &kp N7  &kp N8 &kp N9  &trans                         &mmv MOVE_DOWN                  &kp MINUS  &kp PLUS &trans &trans &trans &trans
+&trans  &trans  &kp N7  &kp N8 &kp N9 &kp N0                         &mmv MOVE_DOWN                  &kp MINUS  &kp PLUS &trans &trans &trans &trans
                         &kp N0  &trans &trans                                &kp RET    &trans     &trans
             >;
             sensor-bindings = <&scroll_encoder>;

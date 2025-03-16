@@ -96,6 +96,29 @@ ZMK_HOLD_TAP(hmr,
             bindings = <&kp ESCAPE>;
             key-positions = <LT4 LT5>;
         };
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <RM1 RM2>;
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <27 33>;
+        };
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <25 41>;
+        };
+
+        goequal {
+            bindings = <&goequal>;
+            key-positions = <LM1 LM2>;
+        };
+
+        saveandquit {
+            bindings = <&savequit>;
+            key-positions = <LT3 LT4>;
     };
 
     rgb_encoder: rgb_encoder {

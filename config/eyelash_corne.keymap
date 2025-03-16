@@ -41,6 +41,23 @@ ZMK_TAP_DANCE(desk4, bindings = <&kp N4>, <&kp LG(N4)>;
 ZMK_TAP_DANCE(desk5, bindings = <&kp N5>, <&kp LG(N5)>;
               tapping-term-ms = <200>;)
 
+ZMK_HOLD_TAP(hml,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    require-prior-idle-ms = <QUICK_TAP_MS>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+
+ZMK_HOLD_TAP(hmr,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    require-prior-idle-ms = <QUICK_TAP_MS>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 

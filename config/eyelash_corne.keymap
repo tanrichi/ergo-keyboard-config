@@ -76,16 +76,6 @@ ZMK_TAP_DANCE(desk5, bindings = <&kp N5>, <&kp LG(N5)>;
             bindings = <&kp ESCAPE>;
             key-positions = <LT4 LT5>;
         };
-
-        goequal {
-            bindings = <&goequal>;
-            key-positions = <LM1 LM2>;
-        };
-
-        saveandquit {
-            bindings = <&savequit>;
-            key-positions = <LT3 LT4>;
-        };
     };
 
     rgb_encoder: rgb_encoder {

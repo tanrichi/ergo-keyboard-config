@@ -13,7 +13,7 @@
 
 // custom helpers
 #include "zmk-helpers/helper.h"
-#include "zmk-helpers/key-labels/42.h"
+#include "eyelash_corne/keymap.h"
 #include "zmk-helpers/unicode-chars/french.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
 

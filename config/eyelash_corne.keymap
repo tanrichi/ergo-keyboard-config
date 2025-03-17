@@ -188,7 +188,7 @@ ZMK_HOLD_TAP(hmr,
             bindings = <
 &trans  &trans  &kp N1  &kp N2 &kp N3 &trans                          &mmv MOVE_UP                    &trans  &trans   &kp UP    &trans    &trans &kp DEL
 &trans  &trans  &kp N4  &kp N5 &kp N6 &trans            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT   &trans  &kp LEFT &kp DOWN  &kp RIGHT &trans &trans
-&trans  &trans  &kp N7  &kp N8 &kp N9 &kp N0                         &mmv MOVE_DOWN                   &trans  &trans   &trans    &trans    &trans &trans
+&kp LSHFT  &trans  &kp N7  &kp N8 &kp N9 &kp N0                         &mmv MOVE_DOWN                   &desk1  &desk2   &desk3    &desk4    &desk5 &trans
                         &kp N0 &kp N0 &kp N0                                                          &kp RET &trans   &trans
             >;
             sensor-bindings = <&scroll_encoder>;

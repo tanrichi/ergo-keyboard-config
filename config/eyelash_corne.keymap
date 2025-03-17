@@ -17,6 +17,12 @@
 #include "zmk-helpers/unicode-chars/french.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
 
+
+#define BASE 0
+#define LOWER 1
+#define RAISE 2
+#define ADJUST 3  
+
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2   // thumbs
@@ -81,6 +87,14 @@ ZMK_HOLD_TAP(hmr,
 
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        adjust_layer {
+            if-layers = <LOWER RAISE>;
+            then-layer = <ADJUST>;
+        };
+    };
     behaviors {
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
@@ -148,7 +162,7 @@ ZMK_HOLD_TAP(hmr,
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "QWERTY";
+            display-name = "Base";
             bindings = <
 &kp TAB    &kp Q           &kp W         &kp E         &kp R         &kp T                              &kp UP                &kp Y        &kp U            &kp I          &kp O          &kp P           &kp BSPC
 &td0       &hml LGUI A     &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &hmr RSHFT J     &hmr LCTRL K   &hmr LALT L    &hmr LGUI SEMI  &kp SQT
@@ -159,7 +173,7 @@ ZMK_HOLD_TAP(hmr,
         };
 
         lower_layer {
-            display-name = "SYMBOL";
+            display-name = "Symbols";
             bindings = < 
 &kp ESC           &kp EXCL               &kp AT           &kp POUND         &kp DOLLAR   &kp PERCENT                            &mmv MOVE_UP                       &kp CARET  &kp AMPERSAND  &kp ASTRK     &kp SLASH          &kp BACKSLASH    &kp DEL
 &kp LESS_THAN     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp DOT     &kp COLON              &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT         &kp UNDER  &kp PIPE       &kp EQUAL     &kp SINGLE_QUOTE   &kp GRAVE        &kp PG_UP
@@ -170,7 +184,7 @@ ZMK_HOLD_TAP(hmr,
         };
 
         raise_layer {
-            display-name = "NUMBERS";
+            display-name = "Nav";
             bindings = <
 &trans  &trans  &kp N1  &kp N2 &kp N3 &trans                          &mmv MOVE_UP                    &trans  &trans   &kp UP    &trans    &trans &kp DEL
 &trans  &trans  &kp N4  &kp N5 &kp N6 &trans            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT   &trans  &kp LEFT &kp DOWN  &kp RIGHT &trans &trans
@@ -183,9 +197,9 @@ ZMK_HOLD_TAP(hmr,
         layer_3 {
             display-name = "Fn";
             bindings = <
-&studio_unlock      &kp F1      &kp F2      &kp F3       &kp F4     &kp F5                         &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans  &trans      &mkp LCLK   &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
-&trans  &sys_reset  &trans      &bootloader  &trans     &mkp MB5  &kp C_MUTE                    &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
+&studio_unlock      &kp F1      &kp F2      &kp F3       &kp F4     &kp F5                                               &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
+&bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&ext_power EP_TOG  &sys_reset  &trans      &bootloader  &out OUT_USB  &out OUT_BLE  &kp C_MUTE                          &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
                                 &trans      &trans      &trans                                                                   &trans       &trans     &trans
             >;
             sensor-bindings = <&scroll_encoder>;

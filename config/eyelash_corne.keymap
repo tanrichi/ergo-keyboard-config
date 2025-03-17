@@ -161,7 +161,7 @@ ZMK_HOLD_TAP(hmr,
         lower_layer {
             display-name = "SYMBOL";
             bindings = < 
-&kp ESC           &kp EXCL               &kp AT           &kp POUND         &kp DOLLAR   &kp PERCENT                            &mmv MOVE_UP                       &kp CARET  &kp AMPERSAND  &kp ASTRK     &kp SLASH          &kp BACKSLASH    &kp BSPC
+&kp ESC           &kp EXCL               &kp AT           &kp POUND         &kp DOLLAR   &kp PERCENT                            &mmv MOVE_UP                       &kp CARET  &kp AMPERSAND  &kp ASTRK     &kp SLASH          &kp BACKSLASH    &kp DEL
 &kp LESS_THAN     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp DOT     &kp COLON              &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT         &kp UNDER  &kp PIPE       &kp EQUAL     &kp SINGLE_QUOTE   &kp GRAVE        &kp PG_UP
 &kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp COMMA   &kp SEMI &kp C_MUTE                    &mmv MOVE_DOWN                     &kp MINUS  &kp PLUS       &kp QUESTION  &kp DOUBLE_QUOTES  &kp TILDE        &trans
                                          &trans        &trans        &trans                                                                                        &kp INS    &kp DEL        &trans
@@ -172,9 +172,9 @@ ZMK_HOLD_TAP(hmr,
         raise_layer {
             display-name = "NUMBERS";
             bindings = <
-&trans  &trans  &kp N1  &kp N2 &kp N3 &trans                          &mmv MOVE_UP                    &kp SLASH  &trans &trans &trans &trans &trans
-&trans  &trans  &kp N4  &kp N5 &kp N6 &trans            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT   &kp EQUAL  &kp ASTRK &trans &trans &trans &trans
-&trans  &trans  &kp N7  &kp N8 &kp N9 &kp N0                         &mmv MOVE_DOWN                  &kp MINUS  &kp PLUS &trans &trans &trans &trans
+&trans  &trans  &kp N1  &kp N2 &kp N3 &trans                          &mmv MOVE_UP                    &trans  &trans &kp UP &trans &trans &kp DEL
+&trans  &trans  &kp N4  &kp N5 &kp N6 &trans            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT   &trans  &kp LEFT &kp DOWN  &kp RIGHT &trans &trans
+&trans  &trans  &kp N7  &kp N8 &kp N9 &kp N0                         &mmv MOVE_DOWN                   &trans  &trans &trans &trans &trans &trans
                         &kp N0  &trans &trans                                &kp RET    &trans     &trans
             >;
             sensor-bindings = <&scroll_encoder>;

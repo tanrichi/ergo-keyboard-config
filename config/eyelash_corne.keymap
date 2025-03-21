@@ -23,7 +23,7 @@
 #define SYM 1
 #define NUM 2
 #define SYSTEM  3  
-#define GAME  4
+//#define GAME  4
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
@@ -66,7 +66,7 @@ ZMK_HOLD_TAP(hml,
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
     bindings = <&kp>, <&kp>;
-)
+)config
 
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
@@ -174,7 +174,7 @@ ZMK_HOLD_TAP(hmr,
             bindings = <
 &kp TAB    &kp Q           &kp W         &kp E         &kp R         &kp T                              &kp UP                &kp Y        &kp U            &kp I          &kp O          &kp P           &kp BSPC
 &td0       &hml LGUI A     &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &hmr RSHFT J     &hmr LCTRL K   &hmr LALT L    &hmr LGUI SEMI  &kp SQT
-&kp LCTRL  &kp Z           &kp X         &kp C         &kp V         &kp B       &kp C_MUTE             &kp DOWN              &kp N        &kp M            &kp COMMA      &kp DOT        &kp FSLH        &mt 4
+&kp LCTRL  &kp Z           &kp X         &kp C         &kp V         &kp B       &kp C_MUTE             &kp DOWN              &kp N        &kp M            &kp COMMA      &kp DOT        &kp FSLH        &trans
                                          &kp LGUI       &mo SYM        &kp SPACE                                              &kp ENTER  &mo NUM  &kp RALT
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -211,17 +211,6 @@ ZMK_HOLD_TAP(hmr,
                                 &trans      &trans      &trans                                                                   &trans       &trans     &trans
             >;
             sensor-bindings = <&scroll_encoder>;
-        };
-
-        game_layer {
-            display-name = "Game";
-            bindings = <
-&kp TAB    &kp Q   &kp W   &kp E   &kp R  &kp T                              &kp UP                &kp Y        &kp U     &kp I      &kp O    &kp P     &kp BSPC
-&kp LSHFT  &kp A   &kp S   &kp D   &kp F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z   &kp X   &kp C   &kp V  &kp B   &kp C_MUTE             &kp DOWN                  &kp N        &kp M     &kp COMMA  &kp DOT  &kp FSLH  &mt BASE
-                  &kp LGUI   &mo SYM  &kp SPACE                                                   &kp ENTER  &mo NUM  &kp RALT
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
 };

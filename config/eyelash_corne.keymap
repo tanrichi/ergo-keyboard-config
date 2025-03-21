@@ -19,9 +19,10 @@
 
 
 #define BASE 0
-#define LOWER 1
-#define RAISE 2
-#define ADJUST 3  
+#define SYM 1
+#define NUM 2
+#define SYSTEM  3  
+#define GAME  4
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
@@ -49,6 +50,12 @@ ZMK_TAP_DANCE(desk3, bindings = <&kp LG(N3)>, <&kp LG(LS(N3))>;
 ZMK_TAP_DANCE(desk4, bindings = <&kp LG(N4)>, <&kp LG(LS(N4))>;
               tapping-term-ms = <200>;)
 ZMK_TAP_DANCE(desk5, bindings = <&kp LG(N5)>, <&kp LG(LS(N5))>;
+              tapping-term-ms = <200>;)
+
+#define SMART_NUM &smart_num NUM 0
+ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
               tapping-term-ms = <200>;)
 
 ZMK_HOLD_TAP(hml,
@@ -91,8 +98,8 @@ ZMK_HOLD_TAP(hmr,
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
+            if-layers = <SYM NUM>;
+            then-layer = <SYSTEM>;
         };
     };
     behaviors {
@@ -166,13 +173,13 @@ ZMK_HOLD_TAP(hmr,
             bindings = <
 &kp TAB    &kp Q           &kp W         &kp E         &kp R         &kp T                              &kp UP                &kp Y        &kp U            &kp I          &kp O          &kp P           &kp BSPC
 &td0       &hml LGUI A     &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &hmr RSHFT J     &hmr LCTRL K   &hmr LALT L    &hmr LGUI SEMI  &kp SQT
-&kp LCTRL  &kp Z           &kp X         &kp C          &kp V        &kp B       &kp C_MUTE             &kp DOWN              &kp N        &kp M            &kp COMMA      &kp DOT        &kp FSLH        &mo 3
-                                         &kp LGUI       &mo 1        &kp SPACE                                                &kp ENTER  &mo 2  &kp RALT
+&kp LCTRL  &kp Z           &kp X         &kp C         &kp V         &kp B       &kp C_MUTE             &kp DOWN              &kp N        &kp M            &kp COMMA      &kp DOT        &kp FSLH        &mt 4
+                                         &kp LGUI       &mo SYM        &kp SPACE                                              &kp ENTER  &mo NUM  &kp RALT
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
-        lower_layer {
+        sym_layer {
             display-name = "Symbols";
             bindings = < 
 &kp ESC           &kp EXCL               &kp AT           &kp POUND         &kp DOLLAR   &kp PERCENT                            &mmv MOVE_UP                       &kp CARET  &kp AMPERSAND  &kp ASTRK     &kp SLASH          &kp BACKSLASH    &kp DEL
@@ -183,19 +190,19 @@ ZMK_HOLD_TAP(hmr,
             sensor-bindings = <&scroll_encoder>;
         };
 
-        raise_layer {
-            display-name = "Nav";
+        num_layer {
+            display-name = "Num";
             bindings = <
-&trans  &trans  &kp N1  &kp N2 &kp N3 &trans                          &mmv MOVE_UP                    &trans  &trans   &kp UP    &trans    &trans &kp DEL
-&trans  &trans  &kp N4  &kp N5 &kp N6 &trans            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT   &trans  &kp LEFT &kp DOWN  &kp RIGHT &trans &trans
-&kp LSHFT  &trans  &kp N7  &kp N8 &kp N9 &kp N0  &kp C_MUTE                         &mmv MOVE_DOWN    &desk1  &desk2   &desk3    &desk4    &desk5 &trans
-                        &kp N0 &kp N0 &kp N0                                                          &kp RET &trans   &trans
+&trans  &kp F1  &kp F2  &kp F3 &kp F4 &kp F5                                 &mmv MOVE_UP               &kp F6  &kp F7   &kp F8   &kp F9   &kp F10 &kp F11
+&trans  &kp N1  &kp N2  &kp N3 &kp N4 &kp N5                 &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT &kp N6  &kp N7   &kp N8   &kp N9   &kp N0  &kp F12
+&trans  &trans  &trans  &trans &trans &trans  &kp C_MUTE                     &mmv MOVE_DOWN             &desk1  &desk2   &desk3   &desk4   &desk5 &trans
+                        &trans &trans &trans                                                            &kp RET &trans   &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_3 {
-            display-name = "Fn";
+        system_layer {
+            display-name = "System";
             bindings = <
 &studio_unlock      &kp F1      &kp F2      &kp F3       &kp F4     &kp F5                                               &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
 &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
@@ -203,6 +210,17 @@ ZMK_HOLD_TAP(hmr,
                                 &trans      &trans      &trans                                                                   &trans       &trans     &trans
             >;
             sensor-bindings = <&scroll_encoder>;
+        };
+
+        game_layer {
+            display-name = "Game";
+            bindings = <
+&kp TAB    &kp Q   &kp W   &kp E   &kp R  &kp T                              &kp UP                &kp Y        &kp U     &kp I      &kp O    &kp P     &kp BSPC
+&kp LSHFT  &kp A   &kp S   &kp D   &kp F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z   &kp X   &kp C   &kp V  &kp B   &kp C_MUTE             &kp DOWN                  &kp N        &kp M     &kp COMMA  &kp DOT  &kp FSLH  &mt BASE
+                  &kp LGUI   &mo SYM  &kp SPACE                                                   &kp ENTER  &mo NUM  &kp RALT
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
 };

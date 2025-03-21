@@ -197,7 +197,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
             bindings = <
 &trans  &trans  &trans  &trans &trans &trans                                 &mmv MOVE_UP               &desk1  &desk2   &desk3   &desk4   &desk5 &kp BSPC
 &trans  &kp N1  &kp N2  &kp N3 &kp N4 &kp N5                 &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT &kp N6  &kp N7   &kp N8   &kp N9   &kp N0 &kp DEL
-&trans  &trans  &trans  &trans &trans &trans  &kp C_MUTE                     &mmv MOVE_DOWN             &desk1  &desk2   &desk3   &desk4   &desk5 &trans
+&trans  &trans  &trans  &trans &trans &trans  &kp C_MUTE                     &mmv MOVE_DOWN             &trans  &trans  &trans  &trans &trans &trans 
                         &trans &trans &trans                                                            &kp RET &trans   &trans
             >;
             sensor-bindings = <&scroll_encoder>;

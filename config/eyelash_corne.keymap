@@ -59,7 +59,7 @@ ZMK_HOLD_TAP(hml,
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
     bindings = <&kp>, <&kp>;
-)config
+)
 
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";

@@ -195,8 +195,8 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
         num_layer {
             display-name = "Num";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3 &kp F4 &kp F5                                 &mmv MOVE_UP               &kp F6  &kp F7   &kp F8   &kp F9   &kp F10 &kp F11
-&trans  &kp N1  &kp N2  &kp N3 &kp N4 &kp N5                 &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT &kp N6  &kp N7   &kp N8   &kp N9   &kp N0  &kp F12
+&trans  &trans  &trans  &trans &trans &trans                                 &mmv MOVE_UP               &desk1  &desk2   &desk3   &desk4   &desk5 &kp BSPC
+&trans  &kp N1  &kp N2  &kp N3 &kp N4 &kp N5                 &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT &kp N6  &kp N7   &kp N8   &kp N9   &kp N0 &kp DEL
 &trans  &trans  &trans  &trans &trans &trans  &kp C_MUTE                     &mmv MOVE_DOWN             &desk1  &desk2   &desk3   &desk4   &desk5 &trans
                         &trans &trans &trans                                                            &kp RET &trans   &trans
             >;
@@ -206,7 +206,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
         system_layer {
             display-name = "System";
             bindings = <
-&studio_unlock      &kp F1      &kp F2      &kp F3       &kp F4     &kp F5                                               &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
+&studio_unlock      &kp F1      &kp F2      &kp F3       &kp F4     &kp F5                                               &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10         &kp F11
 &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &ext_power EP_TOG  &sys_reset  &trans      &bootloader  &out OUT_USB  &out OUT_BLE  &kp C_MUTE                          &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
                                 &trans      &trans      &trans                                                                   &trans       &trans     &trans

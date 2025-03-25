@@ -42,17 +42,6 @@ ZMK_COMBO(escape ,  &kp ESC, LT5 LT4, ALL)
 ZMK_TAP_DANCE(layerdance, bindings = <&tog 4>, <&tog 5>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(desk1, bindings = <&kp LG(N1)>, <&kp LG(LS(N1))>;
-              tapping-term-ms = <200>;)
-ZMK_TAP_DANCE(desk2, bindings = <&kp LG(N2)>, <&kp LG(LS(N2))>;
-              tapping-term-ms = <200>;)
-ZMK_TAP_DANCE(desk3, bindings = <&kp LG(N3)>, <&kp LG(LS(N3))>;
-              tapping-term-ms = <200>;)
-ZMK_TAP_DANCE(desk4, bindings = <&kp LG(N4)>, <&kp LG(LS(N4))>;
-              tapping-term-ms = <200>;)
-ZMK_TAP_DANCE(desk5, bindings = <&kp LG(N5)>, <&kp LG(LS(N5))>;
-              tapping-term-ms = <200>;)
-
 
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
@@ -195,7 +184,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
         num_layer {
             display-name = "Num";
             bindings = <
-&trans  &trans  &trans  &trans &trans &trans                                 &mmv MOVE_UP               &desk1  &desk2   &desk3   &desk4   &desk5 &kp BSPC
+&trans  &trans  &trans  &trans &trans &trans                                 &mmv MOVE_UP               &trans  &trans  &trans  &trans &trans &kp BSPC
 &trans  &kp N1  &kp N2  &kp N3 &kp N4 &kp N5                 &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT &kp N6  &kp N7   &kp N8   &kp N9   &kp N0 &kp DEL
 &trans  &trans  &trans  &trans &trans &trans  &kp C_MUTE                     &mmv MOVE_DOWN             &trans  &trans  &trans  &trans &trans &trans 
                         &trans &trans &trans                                                            &kp RET &trans   &trans
